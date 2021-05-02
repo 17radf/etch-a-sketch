@@ -1,10 +1,10 @@
 setTimeout(() => {
     clean()
     sketch();
-}, 5000);
+}, 7000);
 
 let greeting = document.querySelector('.container')
-greeting.innerHTML = "<div style='padding:40px'><p style='margin-top: 50px;'>Hi, to start just pick color mode above</p> <p>and then hover your mouse here to start sketching</p></div>"
+greeting.innerHTML = "<div style='padding:40px'><h1>Hi</h1><h3> to start, just pick the color mode above. and then hover your mouse here after this text disappear to start sketching.</h3></div>"
 
 function sketch(number = 16){
     for(let i = 0; i < (number ** 2); i++){
