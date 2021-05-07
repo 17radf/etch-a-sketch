@@ -4,7 +4,7 @@ setTimeout(() => {
 }, 7000);
 
 let greeting = document.querySelector('.container')
-greeting.innerHTML = "<div style='padding:40px'><h1>Hi</h1><h3> to start, just pick the color mode above. and then hover your mouse here after this text disappear to start sketching.</h3></div>"
+greeting.innerHTML = "<div class='temp-text'><h1 class='responsive'>Hi</h1><h3 class='responsive'> to start, just pick the color mode above. and then hover your mouse here after this text disappear to start sketching.</h3></div>"
 
 function sketch(number = 16){
     for(let i = 0; i < (number ** 2); i++){
@@ -56,11 +56,13 @@ function clean() {
 let resetBtn = document.querySelector('.reset');
 resetBtn.addEventListener( 'click', () => {
     clean()
-    let amount = prompt('How many grid do you want?\n 1 - 100');
-    if(amount > 100 || amount <= 0){
-        alert('Wrong input, silly');
-        sketch();
-    }else{
-        sketch(amount);
-    }
+    setTimeout(() => {
+        let amount = prompt('How many grid do you want?\n 1 - 100');
+        if(amount > 100 || amount <= 0){
+            alert('Wrong input, silly');
+            sketch();
+        }else{
+            sketch(amount);
+        }
+    }, 700)
 });
