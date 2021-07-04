@@ -45,7 +45,8 @@ button:hover {
 }
 
 button:focus {
-	background-color: blue;
+	background-color: whitesmoke;
+	color: black;
 }
 
 .temp-text {

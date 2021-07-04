@@ -1,14 +1,15 @@
-setTimeout(() => {
+const container = document.querySelector('.container');
+
+let greetText = document.createElement('div')
+greetText.innerHTML = "<div class='temp-text'><h1 class='responsive'>Hi</h1><h3 class='responsive'> to start, please click your mouse here and then pick the color mode above.</h3></div>"
+container.appendChild(greetText)
+greetText.addEventListener("click", () => {
     clean()
     sketch();
-}, 7000);
-
-let greeting = document.querySelector('.container')
-greeting.innerHTML = "<div class='temp-text'><h1 class='responsive'>Hi</h1><h3 class='responsive'> to start, just pick the color mode above. and then hover your mouse here after this text disappear to start sketching.</h3></div>"
+})
 
 function sketch(number = 16){
     for(let i = 0; i < (number ** 2); i++){
-        const container = document.querySelector('.container');
         container.style.display = 'grid';
         container.style.gridTemplateColumns = `repeat(${number}, 1fr)`
         container.style.gridTemplateRows = `repeat(${number}, 1fr)`
@@ -56,13 +57,11 @@ function clean() {
 let resetBtn = document.querySelector('.reset');
 resetBtn.addEventListener( 'click', () => {
     clean()
-    setTimeout(() => {
-        let amount = prompt('How many grid do you want?\n 1 - 100');
-        if(amount > 100 || amount <= 0){
-            alert('Wrong input, silly');
-            sketch();
-        }else{
-            sketch(amount);
-        }
-    }, 700)
+    let amount = prompt('How many grid do you want?\n 1 - 100');
+    if(amount > 100 || amount <= 0){
+        alert('Grid cant be more than 100 or less than 1 bruh');
+        sketch();
+    }else{
+        sketch(amount);
+    }
 });
